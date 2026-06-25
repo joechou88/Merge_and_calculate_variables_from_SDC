@@ -29,7 +29,7 @@
 
 - **Input**: `Merged_All_countries_SDC_2015-2024.xlsx`
 - **Output**: `Filtered_All_countries_SDC_2015-2024.xlsx`
-#### 3. Company Uniqueness Check (`check_company_uniqueness.py`)
+#### 3-1. Company Uniqueness Check (`check_company_uniqueness.py`)
 <img width="418" height="91" alt="image" src="https://github.com/user-attachments/assets/7a231431-fbc6-4a68-8c68-234c9bde5a84" />
 
 - **Objective**:
@@ -37,7 +37,7 @@
   - Identifies and list duplicate company to help a deeper investigation into why duplicates exist
 - **Input**: `Sample_Filtered_All_countries_SDC_2015-2024.xlsx`
 - **Output**: `Duplicated_company_list.xlsx`
-#### 4. Ensure Company Uniqueness (`handle_duplicates.py`)
+#### 3-2. Ensure Company Uniqueness (`handle_duplicates.py`)
 - **Objective**: Ensures each company only have one record in the Excel file.
 - **Key Functions**:
   - Entries sharing the exact same `Issuer/Borrower Name Full` with an `Dates: Issue Date` that is either identical or within 3-day are treated as a single IPO event. We should sum `Proceeds Amount All Markets (USD Millions)` together and retain values from record that held the highest `Proceeds Amount All Markets (USD Millions)` for other columns.
@@ -45,7 +45,7 @@
   - You can see an example to understand how duplicate records are merged: https://docs.google.com/spreadsheets/d/14AC16w1ZYBycbO3lvXgmCCPowfnXYNCR/edit?usp=sharing&ouid=108393837815697167094&rtpof=true&sd=true
 - **Input**: `Sample_Filtered_All_countries_SDC_2015-2024.xlsx`
 - **Output**: `Unique_All_countries_SDC_2015-2024.xlsx`
-#### 5. Variable Calculation (`calculate.py`)
+#### 4. Variable Calculation (`calculate.py`)
 - **Objective**: calculate variables to be served as statistical model input
 - **Variables**
   - Underpricing: `Percent Change Offer Price to Closing Price at Offer/First Trade` ≈ (`Stock Price at Close of Offer/First Trade (USD)` - `Offer Price (USD)`) / `Offer Price (USD)`
