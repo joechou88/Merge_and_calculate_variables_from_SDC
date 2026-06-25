@@ -1,6 +1,6 @@
 SHEET_NAME = 'Request 3'
 START_YEAR = 2015
-END_YEAR = 2024
+END_YEAR = 2019
 
 # Folder name
 SDC_FOLDER = "SDC_xlsx"
