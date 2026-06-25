@@ -110,7 +110,7 @@ def check_equity_carve_out(pct):
 pct_owned = pd.to_numeric(get_col(df, 'Spinoff (Equity Carveout) Company: Pct Owned by Parent After Spinoff'), errors='coerce')
 df['Equity_Carve_out'] = pct_owned.apply(check_equity_carve_out)
 
-calculated_cols = ['Underpricing', 'Ln_Age', 'Relative_Offer_Size', 'VC_backed', 
+calculated_cols = ['Country', 'Underpricing', 'Ln_Age', 'Relative_Offer_Size', 'VC_backed', 
                    'Firm_Commitment', 'Underwriter_Reputation', 'Integer_Offer_Price',
                    'Bookbuilt', 'IPO_count', 'Price_Stabilization', 'Equity_Carve_out']
 id_cols = ['Issuer/Borrower SEDOL', 'ISIN', 'Datastream']
