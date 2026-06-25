@@ -98,7 +98,7 @@ def filter():
                 print(f"Warning: Cannot find column '{column}', skip filtering for: {description}.")
 
         df_non_ipo = df[existing_cols]
-        output_non_ipo = f"Filtered_non_ipo_{config.FILTERED_OUTPUT}"
+        output_non_ipo = config.FILTERED_OUTPUT.replace("Filtered_", "Filtered_non_ipo_")
         df_non_ipo.to_excel(output_non_ipo, index=False)
         print(f"-> Saved File 1 (Exclude Non-IPO): {output_non_ipo} | Total rows: {len(df_non_ipo)}")
 
