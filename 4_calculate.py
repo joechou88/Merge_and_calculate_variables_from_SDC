@@ -29,6 +29,7 @@ df['Underpricing'] = get_col(df, 'Percent Change Offer Price to Closing Price at
 issue_date = pd.to_datetime(get_col(df, 'Dates: Issue Date'), errors='coerce')
 founded_date = pd.to_datetime(get_col(df, 'Issuer/Borrower Founded Date'), errors='coerce')
 age = (issue_date - founded_date).dt.days / 365.25
+df['Age'] = age
 df['Ln_Age'] = age.apply(lambda x: np.log1p(x) if pd.notna(x) and x >= 0 else (np.nan if pd.isna(x) else 0))
 
 # 3. Relative_Offer_Size
@@ -110,7 +111,7 @@ def check_equity_carve_out(pct):
 pct_owned = pd.to_numeric(get_col(df, 'Spinoff (Equity Carveout) Company: Pct Owned by Parent After Spinoff'), errors='coerce')
 df['Equity_Carve_out'] = pct_owned.apply(check_equity_carve_out)
 
-calculated_cols = ['Country', 'Underpricing', 'Ln_Age', 'Relative_Offer_Size', 'VC_backed', 
+calculated_cols = ['Country', 'Underpricing', 'Age', 'Ln_Age', 'Relative_Offer_Size', 'VC_backed', 
                    'Firm_Commitment', 'Underwriter_Reputation', 'Integer_Offer_Price',
                    'Bookbuilt', 'IPO_count', 'Price_Stabilization', 'Equity_Carve_out']
 id_cols = ['Issuer/Borrower SEDOL', 'ISIN', 'Datastream']
