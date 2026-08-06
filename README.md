@@ -25,13 +25,10 @@
   - Exclude particular industries
     - 排除金融機構：Exclude `Issuer/Borrower Primary SIC (Code)` 介於 6000–6999 的公司
     - 排除公用事業：Exclude `Issuer/Borrower Primary SIC (Code)` 介於 4900–4949 的公司
-  <img width="649" height="236" alt="image" src="https://github.com/user-attachments/assets/04245cc3-5485-418a-a714-116b8768589f" />
 
 - **Input**: `Merged_All_countries_SDC_2015-2024.xlsx`
 - **Output**: `Filtered_All_countries_SDC_2015-2024.xlsx`
 #### 3-1. Company Uniqueness Check (`check_company_uniqueness.py`)
-<img width="418" height="91" alt="image" src="https://github.com/user-attachments/assets/7a231431-fbc6-4a68-8c68-234c9bde5a84" />
-
 - **Objective**:
   - Ensures each company should ideally have only one IPO record.
   - Identifies and list duplicate company to help a deeper investigation into why duplicates exist
